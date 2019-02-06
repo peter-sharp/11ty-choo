@@ -1,0 +1,32 @@
+{
+  "name": "11ty-choo-test",
+  "version": "1.0.0",
+  "description": "Testing if 11ty and choo work well together",
+  "main": "index.js",
+  "scripts": {
+    "develop": "eleventy --serve",
+    "build:static": "eleventy",
+    "build:js": "parcel watch _app/index.js --out-dir _site/assets --out-file app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^0.7.1",
+    "assert": "^1.4.1",
+    "choo": "^6.13.1",
+    "choo-devtools": "^2.5.1",
+    "document-ready": "^2.0.2",
+    "flatted": "^2.0.0",
+    "nanobus": "^4.4.0",
+    "nanohref": "^3.1.0",
+    "nanomorph": "^5.2.0",
+    "nanoquery": "^1.2.0",
+    "nanoraf": "^3.1.0",
+    "nanorouter": "^3.1.1",
+    "nanotiming": "^7.3.1",
+    "parcel-bundler": "^1.11.0",
+    "scroll-to-anchor": "^1.1.0",
+    "xtend": "^4.0.1"
+  }
+}

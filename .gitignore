@@ -1,0 +1,6 @@
+.cache
+node_modules
+_site/*
+!_site/assets
+_site/assets/*
+!_site/assets/no-js.js
