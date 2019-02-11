@@ -9,11 +9,13 @@ if (process.env.NODE_ENV !== 'production') {
     app.use(require('choo-devtools')())
 }
 
+console.log(process.env.NODE_ENV)
+
+// Stores
 app.use(pageStore)
-app.route(':page', pageView)
 
-if (typeof window !== 'undefined') {  // 1.
-    app.mount('#app')
-}
+// Routes
+app.route('/*', pageView)
 
-module.exports = app
+
+module.exports = app.mount('#app')

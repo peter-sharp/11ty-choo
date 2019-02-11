@@ -1,0 +1,22 @@
+html,
+body {
+    margin: 0
+}
+
+main,
+.menu-bar {
+    padding: 0.5rem;
+}
+.list-unstyled,
+.main-nav {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.nav-item {
+    display: inline-block;
+}
+
+.menu-bar {
+    background-color: #ccc;
+}

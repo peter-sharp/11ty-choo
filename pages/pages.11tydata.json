@@ -1,4 +1,0 @@
-{
-    "layout": "page.11ty.js",
-    "permalink": "{{ page.fileSlug | replace: 'pages', '' }}/index.html"
-}

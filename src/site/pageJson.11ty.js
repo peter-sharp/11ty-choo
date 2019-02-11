@@ -1,4 +1,5 @@
-const pageDataToState = require('./pageDataToState.js')
+const pageDataToState = require('../pageDataToState.js')
+const {stringRemoveFirstOccurrences} = require('../utils.js')
 
 module.exports = class PageJson {
     data() {
@@ -8,7 +9,7 @@ module.exports = class PageJson {
                 size: 1,
                 alias: 'pageData'
             },
-            permalink: data => `api/pages/${data.pageData.data.page.fileSlug.replace('pages', '') || 'index' }.json`
+            permalink: data => `api/pages/${urlToJsonPath(data.pageData.data.page.url)}.json`
         }
     }
 
@@ -17,4 +18,8 @@ module.exports = class PageJson {
 
         return JSON.stringify( json, null, ' ')
     }
+}
+
+function urlToJsonPath(url) {
+    return (stringRemoveFirstOccurrences(['pages', 'src'], url)).replace(/\/$/, '') || 'index'
 }
