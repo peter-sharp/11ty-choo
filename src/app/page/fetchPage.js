@@ -1,6 +1,7 @@
 const isBrowser = require('../isBrowser.js')
 
 module.exports = function fetchPage(page) {
+    page = page.split('/').filter(x => x).join('/')
     let datafile = page === '' ? 'index' : page
     
     if(isBrowser()) {
@@ -9,7 +10,6 @@ module.exports = function fetchPage(page) {
                     if(!res.ok) {
                         throw Error(res.statusText)
                     }
-                    console.log(res)
                     return res.json()
                 })
     } else {

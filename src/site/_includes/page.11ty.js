@@ -33,10 +33,10 @@ function getMenuItems(pages) {
 function get404Page(notFound) {
     if(!notFound) return null
     let item = notFound[0]
-
+    
     return {
         title: item.data.title,
-        content: item.data.content,
+        content: item.templateContent,
         page: item.data.page
     }
 }

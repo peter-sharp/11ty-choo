@@ -21,5 +21,5 @@ module.exports = class PageJson {
 }
 
 function urlToJsonPath(url) {
-    return (stringRemoveFirstOccurrences(['pages', 'src'], url)).replace(/\/$/, '') || 'index'
+    return (stringRemoveFirstOccurrences(['pages', 'src', '.html'], url)).replace(/\/$/, '') || 'index'
 }

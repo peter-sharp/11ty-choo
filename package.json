@@ -4,11 +4,12 @@
   "description": "Testing if 11ty and choo work well together",
   "main": "index.js",
   "scripts": {
-    "build:static": "eleventy",
-    "build:js": "parcel build src/app/app.js  --public-url /assets --out-dir dist/assets --out-file app.js",
+    "build": "run-p build:*",
+    "build:static": "pnpx eleventy",
+    "build:js": "pnpx parcel build src/app/app*.js --out-dir dist/assets --public-url /assets",
     "develop": "run-p develop:*",
-    "develop:js": "parcel watch src/app/app.js  --public-url /assets --out-dir dist/assets --out-file app.js --no-hmr",
-    "develop:static": "eleventy --serve",
+    "develop:js": "pnpx parcel watch src/app/app*.js --out-dir dist/assets --public-url /assets --no-hmr",
+    "develop:static": "pnpx eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

@@ -1,16 +1,17 @@
 module.exports = function(menuItems) {
+    
     let res = menuItems.reduce(addSubmenuItems, {})
     return arrayifyChildren(res)
 }
 
 function addSubmenuItems(items, item) {
     let urlParts = item.url.split('/').filter(x => x)
-
     if(urlParts.length > 1) {
-
+        
         items = addChild(urlParts, item, items)
+        console.log(items)
     } else {
-        items[urlParts[0]] = item
+        items[urlParts[0]] = items[urlParts[0]] ? Object.assign(items[urlParts[0]], item) : item
     }
     return items
 }
@@ -18,13 +19,12 @@ function addSubmenuItems(items, item) {
 function addChild(parts, item, children) {
     let part = parts.shift()
     if(!parts.length) {
-        children[part] = item
+        children[part] =  item
     } else {
         if(!children[part]) children[part] = {}
         if(!children[part].children) {
             children[part].children = {}
         }
-
         children[part].children = addChild(parts, item, children[part].children)
     }
     return children

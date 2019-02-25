@@ -17,6 +17,10 @@ main,
     display: inline-block;
 }
 
+.nav-item--active a {
+    color: #fff;
+}
+
 .menu-bar {
     background-color: #ccc;
 }

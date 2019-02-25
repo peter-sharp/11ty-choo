@@ -7,7 +7,7 @@ const nav = require('./nav/view.js')
 module.exports = function(state, emit) {
 
     if(canLoadPage(state)) {
-        emit(state.events.LOAD_PAGE, state.params.wildcard)
+        emit(state.events.LOAD_PAGE, state.href +'/')
     }
 
     return html`<div id="app">
@@ -24,5 +24,5 @@ function loader(toggle, el) {
 }
 
 function canLoadPage(state) {
-    return isBrowser() && state.params && state.params.wildcard != state.page.fileSlug
+    return isBrowser() &&  state.href +'/' != state.page.url
 }
