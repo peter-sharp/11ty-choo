@@ -1,10 +1,9 @@
 const fetchPage = require('./fetchPage.js')
 
-module.exports = function(state, events) {
+function pageStore(state, events) {
 
     state.title = state.title || ''
     state.content = state.content || '<!-- no content -->'
-    state.menuItems = state.menuItems || []
     state.page = state.page || {}
     state.page.state = state.page.state || 'loaded'
     
@@ -26,7 +25,12 @@ module.exports = function(state, events) {
                 events.emit(state.events.RENDER)
         })
         .catch((err) => {
+            console.log(err)
             events.emit(state.events.SHOW_404)
         })
     })
 }
+
+pageStore.storeName = 'pageStore'
+
+module.exports = pageStore

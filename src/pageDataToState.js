@@ -1,6 +1,6 @@
 module.exports = function (data, content) {
     let json = Object.assign({}, data, {content});
-
+    if(json.page) json.page = Object.assign({}, json.page)
     if(json.inputPath) delete json.inputPath;
     if(json.outputPath) delete json.outputPath;
     if(json.page && json.page.inputPath) delete json.page.inputPath;

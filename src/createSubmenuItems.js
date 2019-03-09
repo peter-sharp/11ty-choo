@@ -9,7 +9,6 @@ function addSubmenuItems(items, item) {
     if(urlParts.length > 1) {
         
         items = addChild(urlParts, item, items)
-        console.log(items)
     } else {
         items[urlParts[0]] = items[urlParts[0]] ? Object.assign(items[urlParts[0]], item) : item
     }

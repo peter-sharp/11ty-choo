@@ -16,10 +16,16 @@ module.exports = class Page {
         const state = pageDataToState(data, data.layoutContent)
         state.menuItems = createSubmenuItems(getMenuItems(data.collections.page))
         state.page404 = get404Page(data.collections.notFound)
-        
-        const {page} = state
 
-        return html`${raw(app.toString(page.url, state))}
+        const {page} = state
+        console.log(page.url)
+        let pageContents;
+        try {
+            pageContents =  app.toString(page.url, state)
+        } catch (e) {
+            pageContents = ''
+        }
+        return html`${raw(pageContents)}
         <script>
         var initialState = ${raw(JSON.stringify(state, null, ' '))}
         </script>`.toString()
