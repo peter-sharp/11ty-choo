@@ -8,7 +8,6 @@ function pagePlugin(state, events, app) {
     // Stores
     pageStore(state, events)
     
-    console.info('adding page routes')
     loadPageRoutes(app, state.menuItems)
 }
 
@@ -17,7 +16,9 @@ pagePlugin.storeName = 'pagePlugin'
 module.exports = pagePlugin
 
 function loadPageRoutes(app, routes) {
+    console.info(`adding page routes ...`)
     forEachMenuItem((item) => {
+        if(!item.createRoute) return
         // Routes
         const route = removeTrailingSlash(item.url)
         console.info(`- ${route}`)

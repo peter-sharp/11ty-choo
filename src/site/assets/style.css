@@ -24,3 +24,7 @@ main,
 .menu-bar {
     background-color: #ccc;
 }
+
+.form-group > * {
+    display: block;
+}

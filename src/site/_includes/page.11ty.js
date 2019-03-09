@@ -33,7 +33,16 @@ module.exports = class Page {
 }
 
 function getMenuItems(pages) {
-    return pages.filter(item => item.data.tags.indexOf('notFound') === -1).map(item => ({title: item.data.title, url: item.url}))
+    return pages.filter(item => item.data.tags.indexOf('notFound') === -1).map(toMenuItem)
+}
+
+function toMenuItem(item) {
+    const {data} = item
+    return {
+        title: data.title || '', 
+        url: item.url,
+        createRoute: 'createRoute' in data ? data.createRoute : true
+    }
 }
 
 function get404Page(notFound) {
