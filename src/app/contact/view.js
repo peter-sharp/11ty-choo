@@ -1,21 +1,23 @@
 const html = require('choo/html')
 
 module.exports = function contactView(state, emit) {
-    return html`<form onsubmit=${handleContact}>
-        <header>
+    return html`<form onsubmit=${handleContact} class="page-padding">
+        <header class="content-header">
             <h1>Contact</h1>
         </header>
-        ${feedBack(state)}
-        <!-- an example of an app-only page -->
-        <p class="form-group">
-            <label>name</label>
-            <input type="text" name="name"/>
-        </p>
-        <p class="form-group">
-            <label>message</label>
-            <textarea></textarea>
-        </p>
-        <button>Send message</button>
+        <main>
+            ${feedBack(state)}
+            <!-- an example of an app-only page -->
+            <p class="form-group">
+                <label>name</label>
+                <input type="text" name="name"/>
+            </p>
+            <p class="form-group">
+                <label>message</label>
+                <textarea></textarea>
+            </p>
+            <button>Send message</button>
+        </main>
     </form>`
 
     function handleContact(ev) {

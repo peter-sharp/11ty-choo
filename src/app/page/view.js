@@ -9,10 +9,10 @@ module.exports = function(state, emit) {
         emit(state.events.LOAD_PAGE, state.href +'/')
     }
 
-    return html`<header>
+    return html`<header class="page-padding content-header">
         <h1>${loader(state.page.state == 'loading', state.title)}</h1>
         </header>
-        <main>${loader(state.page.state == 'loading', raw(state.content))}</main>`
+        <main class="page-padding">${loader(state.page.state == 'loading', raw(state.content))}</main>`
 }
 
 function loader(toggle, el) {

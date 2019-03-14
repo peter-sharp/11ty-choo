@@ -3,12 +3,13 @@ body {
     margin: 0
 }
 
-main,
-.menu-bar {
-    padding: 0.5rem;
+.page-padding {
+    padding: 1rem;
 }
+
 .list-unstyled,
-.main-nav {
+.main-nav,
+.nav-item__children {
     list-style-type: none;
     padding-left: 0;
 }
@@ -21,10 +22,44 @@ main,
     color: #fff;
 }
 
-.menu-bar {
+.page-header {
     background-color: #ccc;
 }
 
+.page-padding > * {
+    width: 20rem;
+    max-width: 100%;
+    margin: auto;
+}
+
 .form-group > * {
+    display: block;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+}
+.menu-bar,
+.main-nav,
+.nav-item,
+.nav-item__children {
+    background-color: inherit;
+}
+
+
+.nav-item__children {
+    top: 100%;
+    display: none;
+    padding: 0.5rem;
+    position: absolute;
+    width: 100%;
+}
+
+.nav-item:hover .nav-item__children {
     display: block;
 }
