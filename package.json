@@ -7,9 +7,13 @@
     "build": "run-p build:*",
     "build:html": "eleventy",
     "build:js": "parcel build src/app/app*.js --out-dir dist/assets --public-url /assets",
+    "build:assets": "cp ./src/site/assets/* ./dist/assets",
+    "build:admin": "cp ./src/site/admin/* ./dist/admin",
     "develop": "run-p develop:*",
     "develop:js": "parcel watch src/app/app*.js --out-dir dist/assets --public-url /assets --no-hmr",
     "develop:html": "onchange src -- npm run build:html",
+    "develop:assets": "onchange src/site/assets -- npm run build:assets",
+    "develop:admin": "onchange src/site/admin -- npm run build:admin",
     "develop:serve": "browser-sync start --server dist --files dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,6 +22,8 @@
   "dependencies": {
     "choo": "^6.13.1",
     "choo-devtools": "^2.5.1",
+    "htm": "^2.1.1",
+    "netlify-cms": "^2.6.1",
     "ramda": "^0.26.1"
   },
   "devDependencies": {
@@ -26,5 +32,14 @@
     "npm-run-all": "^4.1.5",
     "onchange": "^5.2.0",
     "parcel-bundler": "^1.11.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peter-sharp/11ty-choo.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/peter-sharp/11ty-choo/issues"
+  },
+  "homepage": "https://github.com/peter-sharp/11ty-choo#readme"
 }
