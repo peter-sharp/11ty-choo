@@ -1,3 +1,5 @@
+require('./no-js.js')
+
 const Choo = require('choo')
 
 const pagePlugin = require('./page/index.js')
