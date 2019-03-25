@@ -44,9 +44,33 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+.nav-item__toggler > summary {
+    list-style-type: none;
+}
+.nav-item__toggler > summary:-webkit-details-marker {
+    display: none;
+}
+
+.nav-item__toggler > summary:before {
+    content: '\25B8';
+    display: inline-block;
+    width: 0;
+    left: -1rem;
+    color: inherit;
+    transition: transform 50ms;
+    transform-origin: 0.35rem 0.7rem;
+    position: relative;
+}
+
+.nav-item__toggler[open] > summary:before {
+    transform: rotate(90deg);
+}
+
 .menu-bar,
 .main-nav,
 .nav-item,
+.nav-item__toggler,
 .nav-item__children {
     background-color: inherit;
 }
@@ -54,12 +78,11 @@ body {
 
 .nav-item__children {
     top: 100%;
-    display: none;
     padding: 0.5rem;
     position: absolute;
     width: 100%;
 }
 
-.nav-item:hover .nav-item__children {
-    display: block;
+.nav-item__children > * + * {
+    margin-top: 1rem;
 }
