@@ -7,8 +7,8 @@
     "make": "run-p make:*",
     "make:html": "eleventy",
     "make:js": "parcel build src/app/app*.js --out-dir dist/assets --public-url /assets",
-    "make:assets": "cp ./src/site/assets/* ./dist/assets",
-    "make:admin": "cp ./src/site/admin/* ./dist/admin",
+    "make:assets": "shx mkdir -p ./dist/assets && shx cp ./src/site/assets/* ./dist/assets",
+    "make:admin": "shx mkdir -p ./dist/admin && shx cp ./src/site/admin/* ./dist/admin",
     "develop": "run-p develop:*",
     "develop:js": "parcel watch src/app/app*.js --out-dir dist/assets --public-url /assets --no-hmr",
     "develop:html": "onchange src -- npm run make:html",
@@ -31,7 +31,8 @@
     "browser-sync": "^2.26.3",
     "npm-run-all": "^4.1.5",
     "onchange": "^5.2.0",
-    "parcel-bundler": "^1.11.0"
+    "parcel-bundler": "^1.11.0",
+    "shx": "^0.3.2"
   },
   "repository": {
     "type": "git",
